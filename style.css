@@ -1,0 +1,234 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    /* Evita problemas de rolagem ao usar vídeo de fundo em tela cheia */
+    overflow: hidden; 
+}
+
+/* 1. Estilo do Contêiner do Vídeo de Fundo */
+.video-background {
+    position: fixed; /* Fixa o vídeo no viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Coloca o vídeo atrás de todo o conteúdo */
+}
+
+.video-background video {
+    /* Garante que o vídeo cubra toda a área, mantendo a proporção */
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 2. Estilo do Conteúdo (por cima do vídeo) */
+.content {
+    position: relative; /* Para garantir que o conteúdo fique por cima do vídeo */
+    z-index: 1; 
+    width: 100%;
+    height: 100vh; /* Altura total da tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Um 'overlay' escuro para melhorar a legibilidade do texto branco no vídeo */
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+.header-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%; /* Define a largura para centralizar os itens como na imagem */
+    max-width: 1200px;
+    color: white;
+    text-align: center;
+}
+
+/* 3. Estilo do Logotipo Central */
+.logo {
+    font-size: 1.5em;
+    font-weight: normal;
+    letter-spacing: 5px;
+    margin: 0 40px; /* Espaço entre os links e o logo */
+    color: white;
+}
+
+/* 4. Estilo dos Links (MENUS e BEBIDAS) */
+.menu-link {
+    font-size: 4em; /* Tamanho grande para replicar a imagem */
+    font-weight: bold;
+    text-decoration: none; /* Remove o sublinhado do link */
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para o efeito da imagem */
+    
+    /* Configuração para a animação */
+    transition: transform 0.3s ease-in-out, color 0.3s;
+    display: inline-block; /* Necessário para a transformação (transform) */
+}
+
+/* 5. Animação de Hover (Passar o Rato) */
+.menu-link:hover {
+    /* Escala o texto ligeiramente (aumenta o tamanho) */
+    transform: scale(1.1); 
+    /* E muda a cor, por exemplo, para amarelo (pode mudar a cor) */
+    color: #ffc107; /* Amarelo dourado */
+}
+
+/* Reset básico e estilos gerais */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; 
+}
+
+/* 1. Estilo do Contêiner do Vídeo de Fundo */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 2. Estilo do Conteúdo (Padrão para Ecrãs Grandes - Computador) */
+.content {
+    position: relative;
+    z-index: 1; 
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+.header-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1200px;
+    color: white;
+    text-align: center;
+}
+
+/* Estilo para Ecrãs Grandes */
+.logo {
+    font-size: 1.5em;
+    font-weight: normal;
+    letter-spacing: 5px;
+    margin: 0 40px;
+    color: white;
+}
+
+.menu-link {
+    font-size: 4em; /* Tamanho grande no computador */
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out, color 0.3s;
+    display: inline-block;
+}
+
+/* Animação de Hover */
+.menu-link:hover {
+    transform: scale(1.1); 
+    color: #ffc107;
+}
+
+/* ------------------------------------------- */
+/* 3. Media Queries para Responsividade        */
+/* ------------------------------------------- */
+
+
+/* Estilos para TABLETS (Ecrãs com largura máxima de 768px) */
+@media (max-width: 768px) {
+    .header-links {
+        /* Muda o layout para empilhar verticalmente no tablet */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo {
+        /* Reduz o tamanho e adiciona margem vertical para separar */
+        font-size: 1.2em;
+        margin: 20px 0;
+    }
+
+    .menu-link {
+        /* Reduz o tamanho das palavras "MENUS" e "BEBIDAS" */
+        font-size: 3em; 
+        padding: 10px 0;
+    }
+}
+
+
+/* Estilos para TELEMÓVEIS (Ecrãs com largura máxima de 576px) */
+@media (max-width: 576px) {
+    .logo {
+        /* Mais redução no tamanho do logo para telemóveis */
+        font-size: 1em;
+        letter-spacing: 3px;
+        margin: 15px 0;
+    }
+
+    .menu-link {
+        /* Tamanho ideal para telemóveis */
+        font-size: 2em; 
+        /* Remove a sombra do texto para um visual mais limpo em ecrãs pequenos */
+        text-shadow: none; 
+    }
+    
+    /* Remove a animação de hover nos ecrãs de toque (telemóveis) para evitar problemas */
+    .menu-link:hover {
+        transform: none; 
+        color: white;
+    }
+}
+
+/* Estilos para TELEMÓVEIS (Ecrãs com largura máxima de 576px) */
+@media (max-width: 576px) {
+    /* ... (outros estilos de tamanho permanecem) ... */
+    
+    .menu-link {
+        font-size: 2em; 
+        text-shadow: none; 
+    }
+    
+    /* Esta regra foi adicionada anteriormente para *remover* o hover */
+    /* Vamos removê-la ou modificá-la: */
+    .menu-link:hover {
+         transform: none; 
+         color: white; 
+    }
+
+    /* Adicionar um efeito ao toque/ativação: */
+    .menu-link:active,
+    .menu-link:focus {
+        color: #ffc107; /* Muda a cor para amarelo ao ser tocado */
+    }
+}
