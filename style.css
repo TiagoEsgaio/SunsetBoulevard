@@ -3,23 +3,21 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    /* Evita problemas de rolagem ao usar vídeo de fundo em tela cheia */
     overflow: hidden; 
 }
 
 /* 1. Estilo do Contêiner do Vídeo de Fundo */
 .video-background {
-    position: fixed; /* Fixa o vídeo no viewport */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: -1; /* Coloca o vídeo atrás de todo o conteúdo */
+    z-index: -1;
 }
 
 .video-background video {
-    /* Garante que o vídeo cubra toda a área, mantendo a proporção */
     min-width: 100%;
     min-height: 100%;
     width: auto;
@@ -32,14 +30,13 @@ body {
 
 /* 2. Estilo do Conteúdo (por cima do vídeo) */
 .content {
-    position: relative; /* Para garantir que o conteúdo fique por cima do vídeo */
+    position: relative;
     z-index: 1; 
     width: 100%;
-    height: 100vh; /* Altura total da tela */
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Overlay escuro para melhorar a legibilidade do texto branco no vídeo */
     background-color: rgba(0, 0, 0, 0.4); 
 }
 
@@ -47,62 +44,63 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 80%; /* Define a largura para centralizar os itens */
+    width: 80%;
     max-width: 1200px;
     color: white;
     text-align: center;
 }
 
-/* 3. Estilo do Logotipo de Imagem (usando a classe 'logo-img') */
+/* 3. Estilo do Logotipo de Imagem */
 .logo-img {
     max-width: 300px; /* Largura máxima padrão para ecrãs grandes */
-    height: auto; /* Mantém a proporção da imagem */
-    margin: 0 40px; /* Espaço entre os links e o logo */
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5)); /* Sombra para destacar */
+    height: auto;
+    margin: 0 40px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
     padding-top: 20px; 
     padding-bottom: 20px;
 }
 
-/* 4. Estilo dos Links (MENUS e BEBIDAS) */
+/* 4. Estilo dos Links (MENUS e BEBIDAS) com Efeito NEON */
 .menu-link {
-    font-size: 4em; /* Tamanho grande no computador */
+    font-size: 4em; 
     font-weight: bold;
-    text-decoration: none; /* Remove o sublinhado do link */
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para o efeito da imagem */
+    text-decoration: none;
+    color: #FFFFFF; /* Cor base: Branco */
+    text-shadow: none; /* Sem sombra no estado normal */
     
     /* Configuração para a animação */
-    transition: transform 0.3s ease-in-out, color 0.3s;
-    display: inline-block; /* Necessário para a transformação (transform) */
+    transition: all 0.3s ease-in-out; 
+    display: inline-block;
 }
 
-/* Animação de Hover (Passar o Rato) */
+/* Animação de Hover (Passar o Rato) - Efeito NEON */
 .menu-link:hover {
-    transform: scale(1.1); /* Escala o texto ligeiramente */
-    color: #ffc107; /* Muda a cor para amarelo */
+    transform: scale(1.05); /* Escala ligeiramente */
+    color: #ffc107; /* Cor do neon (Amarelo/Dourado) */
+    text-shadow: 
+        0 0 10px #ffc107, /* Brilho interno */
+        0 0 20px #ffc107, /* Brilho médio */
+        0 0 30px #FFD700; /* Brilho externo */
 }
 
 /* ------------------------------------------- */
 /* 5. Media Queries para Responsividade        */
 /* ------------------------------------------- */
 
-
 /* Estilos para TABLETS (Ecrãs com largura máxima de 768px) */
 @media (max-width: 768px) {
     .header-links {
-        /* Muda o layout para empilhar verticalmente no tablet */
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
-    .logo-img { /* Estilos para o logo em tablets */
-        max-width: 250px; /* Reduz o tamanho do logo */
-        margin: 20px 0; /* Adiciona margem vertical */
+    .logo-img { 
+        max-width: 250px; 
+        margin: 20px 0; 
     }
 
     .menu-link {
-        /* Reduz o tamanho das palavras "MENUS" e "BEBIDAS" */
         font-size: 3em; 
         padding: 10px 0;
     }
@@ -111,28 +109,32 @@ body {
 
 /* Estilos para TELEMÓVEIS (Ecrãs com largura máxima de 576px) */
 @media (max-width: 576px) {
-    .logo-img { /* Estilos para o logo em telemóveis */
-        max-width: 180px; /* Mais redução no tamanho do logo */
+    .logo-img { 
+        max-width: 180px; 
         margin: 15px 0;
         padding-top: 10px; 
         padding-bottom: 10px; 
     }
 
     .menu-link {
-        /* Tamanho ideal para telemóveis */
         font-size: 2em; 
-        text-shadow: none; /* Remove a sombra do texto */
+        text-shadow: none; 
     }
     
     /* ANIMAÇÃO DE TOQUE para Telemóveis */
     .menu-link:active,
     .menu-link:focus {
-        color: #ffc107; /* Muda a cor para amarelo ao ser tocado */
+        color: #ffc107; /* Cor do neon ao toque */
+        text-shadow: 
+            0 0 10px #ffc107,
+            0 0 20px #ffc107,
+            0 0 30px #FFD700;
     }
     
-    /* Remove a animação de escala de hover para ecrãs de toque */
+    /* Remove a animação de escala e hover para ecrãs de toque */
     .menu-link:hover {
         transform: none; 
-        color: white; /* Garante que a cor só muda no toque */
+        color: white; 
+        text-shadow: none;
     }
 }
