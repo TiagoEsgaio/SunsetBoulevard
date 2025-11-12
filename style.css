@@ -28,7 +28,7 @@ body {
     transform: translate(-50%, -50%);
 }
 
-/* 2. Estilo do Conteúdo (por cima do vídeo) */
+/* 2. Estilo do Conteúdo */
 .content {
     position: relative;
     z-index: 1; 
@@ -52,7 +52,7 @@ body {
 
 /* 3. Estilo do Logotipo de Imagem */
 .logo-img {
-    max-width: 300px; /* Largura máxima padrão para ecrãs grandes */
+    max-width: 300px;
     height: auto;
     margin: 0 40px;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
@@ -60,27 +60,41 @@ body {
     padding-bottom: 20px;
 }
 
-/* 4. Estilo dos Links (MENUS e BEBIDAS) com Efeito NEON */
+/* 4. Estilo dos Links (MENUS e BEBIDAS) - Transformados em Botões */
 .menu-link {
-    font-size: 4em; 
-    font-weight: bold;
+    /* NOVO: Aplica o tipo de letra 'Anton' */
+    font-family: 'Anton', sans-serif; 
+    font-size: 2.5em; /* Reduz o tamanho da letra para caber no botão */
+    font-weight: normal;
     text-decoration: none;
-    color: #FFFFFF; /* Cor base: Branco */
-    text-shadow: none; /* Sem sombra no estado normal */
     
-    /* Configuração para a animação */
+    /* Estilo do botão: */
+    color: #FFFFFF;
+    background-color: rgba(10, 10, 10, 0.7); /* Fundo semi-transparente escuro */
+    border: 3px solid #FFFFFF; /* Borda branca para simular uma placa */
+    padding: 15px 30px; /* Espaçamento interno (padding) */
+    border-radius: 8px; /* Cantos ligeiramente arredondados */
+    letter-spacing: 2px; /* Espaçamento entre letras */
+    
+    /* Configuração da animação NEON */
+    box-shadow: 0 0 0 0 #ffc107; /* Sombra inicial da caixa (invisível) */
+    text-shadow: none; 
     transition: all 0.3s ease-in-out; 
     display: inline-block;
 }
 
-/* Animação de Hover (Passar o Rato) - Efeito NEON */
+/* Animação de Hover (Passar o Rato) - Efeito NEON no Botão */
 .menu-link:hover {
     transform: scale(1.05); /* Escala ligeiramente */
-    color: #ffc107; /* Cor do neon (Amarelo/Dourado) */
-    text-shadow: 
-        0 0 10px #ffc107, /* Brilho interno */
-        0 0 20px #ffc107, /* Brilho médio */
-        0 0 30px #FFD700; /* Brilho externo */
+    color: #ffc107; /* Cor do texto no hover */
+    
+    /* Brilho NEON aplicado ao texto e à borda/caixa */
+    border-color: #ffc107;
+    text-shadow: 0 0 5px #ffc107;
+    box-shadow: 
+        0 0 5px #ffc107,
+        0 0 10px #ffc107,
+        0 0 20px #FFD700;
 }
 
 /* ------------------------------------------- */
@@ -101,8 +115,9 @@ body {
     }
 
     .menu-link {
-        font-size: 3em; 
-        padding: 10px 0;
+        font-size: 2em; /* Reduz o tamanho da letra no tablet */
+        padding: 10px 20px; /* Reduz o padding do botão */
+        margin: 10px 0; /* Espaço vertical entre os botões */
     }
 }
 
@@ -117,24 +132,29 @@ body {
     }
 
     .menu-link {
-        font-size: 2em; 
-        text-shadow: none; 
+        font-size: 1.5em; /* Tamanho para telemóvel */
+        padding: 8px 15px;
     }
     
     /* ANIMAÇÃO DE TOQUE para Telemóveis */
     .menu-link:active,
     .menu-link:focus {
-        color: #ffc107; /* Cor do neon ao toque */
-        text-shadow: 
+        color: #ffc107; 
+        border-color: #ffc107;
+        text-shadow: 0 0 5px #ffc107;
+        box-shadow: 
+            0 0 5px #ffc107,
             0 0 10px #ffc107,
-            0 0 20px #ffc107,
-            0 0 30px #FFD700;
+            0 0 20px #FFD700;
     }
     
     /* Remove a animação de escala e hover para ecrãs de toque */
     .menu-link:hover {
         transform: none; 
         color: white; 
+        border-color: white;
         text-shadow: none;
+        box-shadow: none;
     }
 }
+
